@@ -104,6 +104,20 @@ var directionsDisplay,
     map;
 
 function initialize() {
+  	// para funcionar, links ancoras
+	$('a[href*="#"]:not([href="#"])').click(function () {
+		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+			if (target.length) {
+				$('html, body').animate({
+					scrollTop: target.offset().top
+				}, 1000);
+				return false;
+			}
+		}
+	});
+
   var directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
   var joinville = new google.maps.LatLng(-26.0809016,-48.9197777);
