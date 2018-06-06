@@ -99,23 +99,17 @@ $(document).ready(function() {
 
 // googleMaps
 
+var directionsDisplay,
+    directionsService,
+    map;
+
 function initialize() {
-
-  var myLatLng = new google.maps.LatLng(45.4375, 12.3358),
-      myOptions = {
-          zoom: 5,
-          center: myLatLng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-      },
-      map = new google.maps.Map(document.getElementById('map-canvas'), myOptions),
-      marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map
-      });
-
-  marker.setMap(map);
-  moveMarker(map, marker);
-
+  var directionsService = new google.maps.DirectionsService();
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var mapOptions = { zoom:7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: chicago }
+  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  directionsDisplay.setMap(map);
 }
 
 function moveMarker(map, marker) {
