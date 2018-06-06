@@ -106,8 +106,8 @@ var directionsDisplay,
 function initialize() {
   var directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
-  var mapOptions = { zoom:7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: chicago }
+  var joinville = new google.maps.LatLng(-26.0809016,-48.9197777);
+  var mapOptions = { zoom:7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: joinville }
   map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
   directionsDisplay.setMap(map);
 }
